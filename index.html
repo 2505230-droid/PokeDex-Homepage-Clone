@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+<title> PokéDex </title>
+<link rel="stylesheet" href ="style.css">
+ </head>
+
+<!--HEADER-->
+<body >
+<h1 class =" Pokedex-title">POKEDEX</h1>
+
+<main>
+  <div class="pokedex">
+
+    
+    <div class="content">
+
+      <div class="left-panel">
+        
+        <img id="pokemonImage" src="https://i.pinimg.com/736x/af/78/ee/af78eee3881a5c52eb9adc690fcf47ce.jpg" alt="Pokemon Image">
+
+      </div>
+
+      <div class="center-panel">
+        <h2 id="pokemonId">#001</h2>
+        <p id="pokemonName">PIKACHU</p>
+        <p id="pokemonType">Electric</p>
+        <p id = "pokemonStats">Type : Electric</p>
+        <p id = "pokemonStats1">Species : Mouse Pokémon </p>
+        <p id = "pokemonStats2">Abilities : Static, Lightning Rod (Hidden)</p>
+        <p id = "pokemonImage"=https://i.pinimg.com/736x/af/78/ee/af78eee3881a5c52eb9adc690fcf47ce.jpg/p>
+
+      </div>
+
+      
+    <!-- Navigation  -->
+ <div class="nav-buttons">
+  <button id="prevBtn">◀ PREVIOUS</button>
+  <button id="menuBtn">MENU</button>
+  <button id="nextBtn">NEXT ▶</button>
+</div>
+ 
+</main>
+</body>
+<script>
+const pokedex = [
+
+  {  name: "PIKACHU",
+   id:"#001",
+   type: "Electric", 
+   stats:"TYPE : Electric",
+   stats1: "SPECIES : Mouse Pokémon", 
+   stats2: "ABILITIES : Static, Lightning Rod (Hidden)",
+   image : "https://i.pinimg.com/736x/af/78/ee/af78eee3881a5c52eb9adc690fcf47ce.jpg" },
+
+  { name: "CHARIZARD",
+   id: "#002", 
+   type: "Fire" ,
+    stats :"TYPE : Fire/Flying (regular)",
+    stats1:" SPECIES : Flame Pokémon " , 
+    stats2:"ABILITIES : Blaze, Solar Power (Hidden)",
+    image :"https://i.pinimg.com/736x/7e/90/35/7e9035f852c543f6bb373f38bfba9603.jpg" },
+
+  { name: "BULBASAUR", 
+  id: "#003", 
+  type: "Grass" ,
+   stats :"TYPE  : Grass/Poison/Water ",
+    stats1:"SPECIES : Turtle Pokemon" ,
+     stats2:"ABILITIES  : Overgrow Hidden Ability: Chlorophyll  ",
+    image: "https://i.pinimg.com/736x/4a/b8/f7/4ab8f79f7fde7403952e04e532720272.jpg"}
+];
+
+let currentIndex = 0;
+
+
+const nameEl = document.getElementById("pokemonName");
+const idEl = document.getElementById("pokemonId");
+const typeEl = document.getElementById("pokemonType");
+const statsE1 = document.getElementById("pokemonStats");
+const stats1E1 = document.getElementById("pokemonStats1");
+const stats2E1 = document.getElementById("pokemonStats2");
+const imageEl = document.getElementById("pokemonImage");
+
+
+
+document.getElementById("nextBtn").onclick = () => {
+  currentIndex = (currentIndex + 1) % pokedex.length;
+  updatePokemon();
+};
+
+document.getElementById("prevBtn").onclick = () => {
+  currentIndex = (currentIndex - 1 + pokedex.length) % pokedex.length;
+  updatePokemon();
+};
+
+document.getElementById("menuBtn").onclick = () => {
+  currentIndex = 0;
+  updatePokemon();
+};
+
+
+function updatePokemon() {
+  nameEl.textContent = pokedex[currentIndex].name;
+  idEl.textContent = pokedex[currentIndex].id;
+  typeEl.textContent = pokedex[currentIndex].type;
+  statsE1.textContent = pokedex[currentIndex].stats;
+  stats1E1.textContent = pokedex[currentIndex].stats1;
+  stats2E1.textContent = pokedex[currentIndex].stats2;
+  imageEl.src = pokedex[currentIndex].image;
+}
+
+updatePokemon();
+
+
+
+
+</script>
+
+</html>
+
